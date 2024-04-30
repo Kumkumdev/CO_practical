@@ -2,8 +2,8 @@ mkdir composetest
 cd composetest
 
 requirements.txt
-flask
-redis
+Flask
+Redis
 
 Dockerfile
 
