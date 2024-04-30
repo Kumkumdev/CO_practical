@@ -50,6 +50,18 @@ sh get-docker.sh
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 ____________
 lifecycle
 
@@ -134,6 +146,19 @@ docker service create alpine ping www.google.com
 docker service ls
 docker service ps service  ID
 docker container ls
+
+OR
+
+Docker swarm init
+Docker service create alpine ping www.google.com
+Docker container ls -a
+Docker  service scale id=5
+docker service ls
+docker service rollback id
+
+Docker swarm init
+docker swarm join-token worker
+docker node ls
 _______________________________
 
 health
