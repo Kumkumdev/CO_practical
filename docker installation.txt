@@ -136,29 +136,30 @@ swarm
 curl -fsSl https://get.docker.com -o get-docker.sh
 sh get-docker.sh
 
-docker info
-docker swarm --help
-docker swarm init
-docker service  ls
-docker node ls
-docker service  --help
-docker service create alpine ping www.google.com
-docker service ls
-docker service ps service  ID
-docker container ls
+$ docker info
+$ docker swarm init
+$ docker node ls
+$ docker service create alpine ping www.google.com
+$ docker service ls
+$ docker service ps serviceID
+$ docker container ls
+-scale up and rollback service
+$ docker service scale serviceID=5
+$ docker service ps serviceID
+$ docker service rollback serviceID
 
-OR
-
-Docker swarm init
-Docker service create alpine ping www.google.com
-Docker container ls -a
-Docker  service scale id=5
-docker service ls
-docker service rollback id
-
-Docker swarm init
-docker swarm join-token worker
-docker node ls
+-launch 3 more instances(worker nodes)
+-on manager node
+$ docker swarm join-token worker  
+-copy paste command on all worker nodes
+$ docker node ls
+-create another service
+$ docker service create --replicas 5 alpine ping www.dypiu.ac.in
+$ docker service ls
+$ docker service ps serviceiD
+$ docker container ls
+-go to worker nodes and write 
+$ docker container ls
 _______________________________
 
 health
