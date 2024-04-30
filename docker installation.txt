@@ -168,13 +168,12 @@ mkdir health
 cd health
 docker container run --name pg1 -e POSTGRES_PASSWORD=mypassword -d postgres
 docker ps
-docker container exec -it postgres bash
-$pg_isready -U postgres
-$exit
-$docker container run --name pg2 -e POSTGRES_PASSWORD=mypassword --health-cmd"pg_isready -U postgres ||exit1" postgres
+docker container exec -it pg1 bash
+pg_isready -U postgres
+exit
+docker container run --name pg2 -e POSTGRES_PASSWORD=mypassword --health-cmd="pg_isready -U postgres ||exit1" -d postgres
  
-$docker ps
+docker ps
 
-$docker container run --name pg3 -e POSTGRES_PASSWORD=mypassword --health-cmd"pg_isready -U root ||exit1" postgres
-
+docker container run --name pg3 -e POSTGRES_PASSWORD=mypassword --health-cmd="pg_isready -U root ||exit1" -d postgres
 _____________________________
